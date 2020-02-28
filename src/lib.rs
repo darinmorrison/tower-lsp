@@ -7,11 +7,10 @@
 //! ```rust
 //! # use std::future::Future;
 //! #
-//! # use jsonrpc_core::Result;
 //! # use serde_json::Value;
 //! # use tower_lsp::lsp_types::request::{GotoDefinitionResponse, GotoImplementationResponse};
 //! # use tower_lsp::lsp_types::*;
-//! # use tower_lsp::{LanguageServer, LspService, Printer, Server};
+//! # use tower_lsp::{LanguageServer, LspService, Printer, Result, Server};
 //! #
 //! #[derive(Debug, Default)]
 //! struct Backend;
@@ -72,8 +71,19 @@ pub use self::service::{ExitedError, LspService};
 pub use self::stdio::Server;
 /// A re-export of [`async-trait`](https://docs.rs/async-trait) for convenience.
 pub use async_trait::async_trait;
+/// Error type returned by language server RPC methods.
+///
+/// This is a re-export of [`jsonrpc_core::Error`] for convenience.
+///
+/// [`jsonrpc_core::Error`]: https://docs.rs/jsonrpc-core/14.0.5/jsonrpc_core/types/error/struct.Error.html
+pub use jsonrpc_core::Error;
+/// Result type returned by language server RPC methods.
+///
+/// This is a re-export of [`jsonrpc_core::Result`] for convenience.
+///
+/// [`jsonrpc_core::Result`]: https://docs.rs/jsonrpc-core/14.0.5/jsonrpc_core/type.Result.html
+pub use jsonrpc_core::Result;
 
-use jsonrpc_core::{Error, Result};
 use log::{error, warn};
 use lsp_types::request::{GotoDefinitionResponse, GotoImplementationResponse};
 use lsp_types::*;
