@@ -13,6 +13,10 @@ categories = ["asynchronous"]
 keywords = ["language-server", "lsp", "tower"]
 exclude = ["./tower-lsp-macros"]
 
+[features]
+default = ["proposed"]
+proposed = ["lsp-types/proposed"]
+
 [dependencies]
 async-trait = "0.1"
 auto_impl = "0.4"

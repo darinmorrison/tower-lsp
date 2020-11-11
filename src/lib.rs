@@ -766,6 +766,68 @@ pub trait LanguageServer: Send + Sync + 'static {
         error!("Got a textDocument/selectionRange request, but it is not implemented");
         Err(Error::method_not_found())
     }
+
+    /// [`callHierarchy/incomingCalls`]: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#callHierarchy_incomingCalls
+    #[rpc(name = "callHierarchy/incomingCalls")]
+    async fn incoming_calls(&self, params: CallHierarchyIncomingCallsParams) -> Result<Option<Vec<CallHierarchyIncomingCall>>> {
+        let _ = params;
+        error!("Got a callHierarchy/incomingCalls request, but it is not implemented");
+        Err(Error::method_not_found())
+    }
+
+    /// [`callHierarchy/outgoingCalls`]: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#callHierarchy_outgoingCalls
+    #[rpc(name = "callHierarchy/outgoingCalls")]
+    async fn outgoing_calls(&self, params: CallHierarchyOutgoingCallsParams) -> Result<Option<Vec<CallHierarchyOutgoingCall>>> {
+        let _ = params;
+        error!("Got a callHierarchy/outgoingCalls request, but it is not implemented");
+        Err(Error::method_not_found())
+    }
+
+    /// [`textDocument/prepareCallHierarchy`]: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#textDocument_prepareCallHierarchy
+    #[rpc(name = "textDocument/prepareCallHierarchy")]
+    async fn prepare_call_hierarchy(&self, params: CallHierarchyPrepareParams) -> Result<Option<Vec<CallHierarchyItem>>> {
+        let _ = params;
+        error!("Got a textDocument/prepareCallHierarchy request, but it is not implemented");
+        Err(Error::method_not_found())
+    }
+
+    /// [`textDocument/semanticTokens/full`]: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#textDocument_semanticTokens
+    #[rpc(name = "textDocument/semanticTokens/full")]
+    async fn semantic_tokens_full(&self, params: SemanticTokensParams) -> Result<Option<SemanticTokensResult>> {
+        let _ = params;
+        error!("Got a textDocument/semanticTokens/full request, but it is not implemented");
+        Err(Error::method_not_found())
+    }
+
+    /// [`textDocument/semanticTokens/full/delta`]: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#textDocument_semanticTokens
+    #[rpc(name = "textDocument/semanticTokens/full/delta")]
+    async fn semantic_tokens_full_delta(&self, params: SemanticTokensDeltaParams) -> Result<Option<SemanticTokensFullDeltaResult>> {
+        let _ = params;
+        error!("Got a textDocument/semanticTokens/full/delta request, but it is not implemented");
+        Err(Error::method_not_found())
+    }
+
+    /// [`textDocument/semanticTokens/range`]: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#textDocument_semanticTokens
+    #[rpc(name = "textDocument/semanticTokens/range")]
+    async fn semantic_tokens_range(&self, params: SemanticTokensRangeParams) -> Result<Option<SemanticTokensRangeResult>> {
+        let _ = params;
+        error!("Got a textDocument/semanticTokens/range request, but it is not implemented");
+        Err(Error::method_not_found())
+    }
+
+    /// [`textDocument/semanticTokens/full`]: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#textDocument_semanticTokens
+    #[rpc(name = "textDocument/semanticTokens/refresh")]
+    async fn semantic_tokens_refresh(&self) -> Result<()> {
+        error!("Got a textDocument/semanticTokens/refresh request, but it is not implemented");
+        Err(Error::method_not_found())
+    }
+
+    /// [`codeAction/resolve`]: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/#codeAction_resolve
+    #[rpc(name = "codeAction/resolve")]
+    async fn code_action_resolve(&self) -> Result<()> {
+        error!("Got a codeAction/resolve request, but it is not implemented");
+        Err(Error::method_not_found())
+    }
 }
 
 fn _assert_object_safe() {
