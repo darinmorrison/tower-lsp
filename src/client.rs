@@ -234,7 +234,7 @@ impl Client {
         &self,
         uri: Url,
         diags: Vec<Diagnostic>,
-        version: Option<i64>,
+        version: Option<i32>,
     ) {
         self.send_notification_initialized::<PublishDiagnostics>(PublishDiagnosticsParams::new(
             uri, diags, version,
